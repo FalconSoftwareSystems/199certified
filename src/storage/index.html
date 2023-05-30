@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<!-- Head -->
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>199% Certified</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="media/FSS_Favicon.png"> 
+
+  <!-- Files/Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Lexend Deca' rel='stylesheet'>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<!-- Body -->
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>199% Certified</h1>
+  </header>
+    
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><img src = "media/FSS_Logo.png" alt="FSS_Logo"/></li>
+      <li><a href="adminLogin.html" class="login_button">Admin Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sign-In Form -->
+  <form class="login">
+    <br><label for="login">Student Login</label><br><br>
+    <label for="login_info">Please enter your MCPS ID and Password</label><br><br>
+
+    <input type="text" placeholder="Enter Username" id="uname" name="uname">
+    <input type="password" placeholder="Enter Password" id="pword" name="pword"><br>
+    <input type="checkbox" onclick="showPass()">Show Password<br>
+
+    <button type="submit" onclick="login()">Login</button>
+    <script src="studentvue.js"></script>
+
+  </form>
+
+  <h1 id="demo">Hello Kevin and Aarush</h1>
+  <script src="home.js"></script>
+
+</body>
+
+
+</html>

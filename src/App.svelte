@@ -1,3 +1,5 @@
+<!--
+
 <script>
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
@@ -43,5 +45,24 @@
   }
   .read-the-docs {
     color: #888;
+  }
+</style>
+
+-->
+
+<header>
+  <h1>199% Certified</h1>
+</header>
+
+<style>
+  header {
+    background-color: #0d0d0d; 
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+  }
+
+  header h1 {
+    color: white;
   }
 </style>
