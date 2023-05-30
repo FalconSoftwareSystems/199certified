@@ -50,19 +50,34 @@
 
 -->
 
-<header>
-  <h1>199% Certified</h1>
-</header>
+<script>
+  import fssLogo from './assets/FSS_Logo.png'
+</script>
 
-<style>
-  header {
-    background-color: #0d0d0d; 
-    margin: 0;
-    padding: 5px;
-    text-align: center;
-  }
-
-  header h1 {
-    color: white;
-  }
-</style>
+<body>
+  <header>
+    <h1>199% Certified</h1>
+  </header>
+    
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><img src = {fssLogo} alt="FSS_Logo"/></li>
+      <li><a href="adminLogin.html" class="login_button">Admin Login</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Sign-In Form -->
+  <form class="login">
+    <br><label for="login">Student Login</label><br><br>
+    <label for="login_info">Please enter your MCPS ID and Password</label><br><br>
+  
+    <input type="text" placeholder="Enter Username" id="uname" name="uname">
+    <input type="password" placeholder="Enter Password" id="pword" name="pword"><br>
+    <!-- <input type="checkbox" onclick="showPass()">Show Password<br> -->
+  
+    <!-- <button type="submit" onclick="login()">Login</button> -->
+    <script src="studentvue.js"></script>
+  
+  </form>
+</body>
