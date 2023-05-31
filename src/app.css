@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url("media/homeScreenBackground.JPG");
+  background-image: url("assets/homeScreenBackground.JPG");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
