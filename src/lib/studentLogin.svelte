@@ -1,6 +1,25 @@
 <script>
+  import StudentVue from "studentvue";
+
   let uname;
   let pword;
+  let msg = "";
+  let stuID;
+  let stuGrade;
+  let stuFName;
+  let stuLName;
+
+  const DISTRICT_URL = 'https://md-mcps-psv.edupoint.com/PXP2_Login.aspx';
+
+  async function login() {
+    try {
+      const client = await StudentVue.login(DISTRICT_URL, { username: uname.value, password: pword.value });
+      msg = "success";
+
+    } catch {
+      msg = "Incorrect Login";
+    }
+  }
 
   function showPass() {
     if (pword.type === "password") {
@@ -11,17 +30,65 @@
   }
 </script>
   
-   Sign-In Form 
-  <form class="login">
-    <br><label for="login">Student Login</label><br><br>
-    <label for="login_info">Please enter your MCPS ID and Password</label><br><br>
+<form class="login">
+  <br><label for="login">Student Login</label><br><br>
+  <label for="login_info">Please enter your MCPS ID and Password</label><br><br>
   
-    <input type="text" placeholder="Enter MCPS ID" id="uname" bind:this={uname}>
-    <input type="password" placeholder="Enter Password" id="pword" bind:this={pword}><br>
-    <input type="checkbox" on:click={showPass}>Show Password<br>
+  <input type="text" placeholder="Enter MCPS ID" id="uname" bind:this={uname}>
+  <input type="password" placeholder="Enter Password" id="pword" bind:this={pword}><br>
+  <input type="checkbox" on:click={showPass}>Show Password<br>
   
-    <button type="submit" on:click>Login</button>
-    <!-- <button type="submit" onclick="login()">Login</button> -->
-    <script src="studentvue.js"></script>
+  <button type="button" on:click={login}>Login</button><br>
+  <p id="msg"> {msg} </p>
+
   
-  </form>
+</form>
+
+<style>
+  form.login {
+    text-align: center;
+    border: 3px solid #f1f1f1;
+    background-color: white;
+    margin: 80px auto; 
+    width: 30%;
+    height: auto;
+  }
+
+  form.login label {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+  }
+
+  form.login label[for="login"] {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  form.login input[type=text], input[type=password] {
+    width: 80%;
+    padding: 12px 15px; /* Inside */
+    margin: 5px 0; /* Outside */
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  form.login input[type=checkbox] {
+    margin: 5px;
+  }
+
+  form.login button {
+    background-color: #be965cff;
+    color: white;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border-style: 1px solid #ccc;
+    cursor: pointer;
+    width: 20%;
+  }
+
+  form.login button:hover {
+    background-color: #917347ff;    
+  }
+</style>

@@ -15,6 +15,7 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "studentvue": "^2.0.2"
   }
 }
