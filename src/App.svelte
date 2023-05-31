@@ -31,7 +31,7 @@
     <br><label for="login">Student Login</label><br><br>
     <label for="login_info">Please enter your MCPS ID and Password</label><br><br>
   
-    <input type="text" placeholder="Enter ID" id="uname" bind:this={uname}>
+    <input type="text" placeholder="Enter MCPS ID" id="uname" bind:this={uname}>
     <input type="password" placeholder="Enter Password" id="pword" bind:this={pword}><br>
     <input type="checkbox" on:click={showPass}>Show Password<br>
   
