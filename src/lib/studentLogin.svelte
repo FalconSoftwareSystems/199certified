@@ -4,18 +4,23 @@
   let uname;
   let pword;
   let msg = "";
+
+  let stuName;
   let stuID;
   let stuGrade;
-  let stuFName;
-  let stuLName;
+  let stuPhoto;
 
   const DISTRICT_URL = 'https://md-mcps-psv.edupoint.com/PXP2_Login.aspx';
 
   async function login() {
     try {
       const client = await StudentVue.login(DISTRICT_URL, { username: uname.value, password: pword.value });
-      msg = "success";
+      stuName = (await client.studentInfo()).student.name;
+      stuID = (await client.studentInfo()).id;
+      stuGrade = (await client.studentInfo()).grade;
+      stuPhoto = (await client.studentInfo()).photo;
 
+      msg = "Welcome, " + stuName;
     } catch {
       msg = "Incorrect Login";
     }
@@ -28,6 +33,12 @@
       pword.type = "password";
     }
   }
+
+  document.addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+      login();
+    }
+  });
 </script>
   
 <form class="login">
@@ -40,8 +51,6 @@
   
   <button type="button" on:click={login}>Login</button><br>
   <p id="msg"> {msg} </p>
-
-  
 </form>
 
 <style>
