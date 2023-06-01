@@ -20,7 +20,7 @@
       stuGrade = (await client.studentInfo()).grade;
       stuPhoto = (await client.studentInfo()).photo;
 
-      msg = "Welcome, " + stuName;
+      msg = "Welcome, " + stuName + "!";
     } catch {
       msg = "Incorrect Login";
     }
