@@ -1,11 +1,11 @@
 <script>
-  import LoginS from "./lib/studentLogin.svelte"
-  import NavBar from "./lib/NavBar.svelte"
+  import LoginStudent from "./lib/Login/LoginStudent.svelte";
+  import NavBar from "./lib/Style/NavBar.svelte";
 
 </script>
 
 
 <body>
   <NavBar />
-  <LoginS />
+  <LoginStudent />
 </body>

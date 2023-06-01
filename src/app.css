@@ -12,15 +12,3 @@ body {
   background-size: cover;
   margin: 0;
 }
-
-/* Header */
-header {
-  background-color: #0d0d0d; 
-  margin: 0;
-  padding: 5px;
-  text-align: center;
-}
-
-header h1 {
-  color: white;
-}

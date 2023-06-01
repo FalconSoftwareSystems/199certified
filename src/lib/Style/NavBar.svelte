@@ -1,14 +1,12 @@
 <script>
-    import fssLogo from '../assets/FSS_Logo.png'
+    import fssLogo from '../../assets/FSS_Logo.png'
 </script>
-  
-  
+
 <body>
     <header>
       <h1>199% Certified</h1>
     </header>
       
-    <!-- Navigation Bar -->
     <nav>
       <ul>
         <li><img src = {fssLogo} alt="FSS_Logo"/></li>
@@ -19,6 +17,17 @@
 </body>
 
 <style>
+header {
+  background-color: #0d0d0d; 
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
+
+header h1 {
+  color: white;
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;

@@ -6,8 +6,6 @@
   let msg = "";
 
   let stuName;
-  let stuID;
-  let stuGrade;
   let stuPhoto;
 
   const DISTRICT_URL = 'https://md-mcps-psv.edupoint.com/PXP2_Login.aspx';
