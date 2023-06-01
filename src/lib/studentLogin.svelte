@@ -16,9 +16,6 @@
     try {
       const client = await StudentVue.login(DISTRICT_URL, { username: uname.value, password: pword.value });
       stuName = (await client.studentInfo()).student.name;
-      stuID = (await client.studentInfo()).id;
-      stuGrade = (await client.studentInfo()).grade;
-      stuPhoto = (await client.studentInfo()).photo;
 
       msg = "Welcome, " + stuName + "!";
     } catch {
