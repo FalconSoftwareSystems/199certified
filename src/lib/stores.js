@@ -5,4 +5,5 @@ export let student = writable({
     photo: undefined,
     ID: undefined,
     loggedIn: false,
+    admin: false
 })

@@ -4,19 +4,22 @@
   import LoginStudent from "./lib/Login/LoginStudent.svelte";
   import HomeAdmin from "./lib/Main/HomeAdmin.svelte";
   import HomeStudent from "./lib/Main/HomeStudent.svelte";
-
-
   import NavBar from "./lib/Style/NavBar.svelte";
 
 </script>
 
-<body>
-  {#if !$student.loggedIn}
-    <NavBar />
-    <LoginStudent />
-  {:else} 
-    <NavBar />
+<body>  
+  {#if !$student.admin && $student.loggedIn}
+    <NavBar title="Student Home" bText="Student Login"/>
     <HomeStudent />
+  {:else if $student.admin && $student.loggedIn}
+    <HomeAdmin />
+  {:else if $student.admin}
+    <NavBar title="199% Certified" bText="Student Login"/>
+    <LoginAdmin />
+  {:else} 
+    <NavBar title="199% Certified" bText="Admin Login"/>
+    <LoginStudent />
   {/if}
 
 </body>
