@@ -4,7 +4,6 @@
 
 </script>
 
-
 <body>
   <NavBar />
   <LoginStudent />

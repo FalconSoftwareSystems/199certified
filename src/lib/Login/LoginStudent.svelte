@@ -1,5 +1,6 @@
 <script>
   import StudentVue from "studentvue";
+  import { student } from "../stores.js";
 
   let uname;
   let pword;
@@ -13,10 +14,19 @@
   async function login() {
     try {
       const client = await StudentVue.login(DISTRICT_URL, { username: uname.value, password: pword.value });
+      
       stuName = (await client.studentInfo()).student.name;
+      stuPhoto = (await client.studentInfo()).photo;
 
+      document.getElementById("msg").style.color = "black";
       msg = "Welcome, " + stuName + "!";
+
+      student.update(state => ({...state, 
+        name: stuName,
+        photo: stuPhoto
+      }));
     } catch {
+      document.getElementById("msg").style.color = "red";
       msg = "Incorrect Login";
     }
   }
@@ -34,6 +44,7 @@
       login();
     }
   });
+
 </script>
   
 <form class="login">
@@ -44,7 +55,7 @@
   <input type="password" placeholder="Enter Password" id="pword" bind:this={pword}><br>
   <input type="checkbox" on:click={showPass}>Show Password<br>
   
-  <button type="button" on:click={login}>Login</button><br>
+  <button type="button" on:click={login} id="login_button">Login</button><br>
   <p id="msg"> {msg} </p>
 </form>
 
