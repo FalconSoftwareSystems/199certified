@@ -23,11 +23,13 @@
 
       student.update(state => ({...state, 
         name: stuName,
-        photo: stuPhoto
+        photo: stuPhoto,
+        loggedIn: true
       }));
-    } catch {
+    } catch (e) {
       document.getElementById("msg").style.color = "red";
       msg = "Incorrect Login";
+      console.log(e.message);
     }
   }
 
