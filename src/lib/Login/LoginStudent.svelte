@@ -8,6 +8,7 @@
 
   let stuName;
   let stuPhoto;
+  let stuID;
 
   const DISTRICT_URL = 'https://md-mcps-psv.edupoint.com/PXP2_Login.aspx';
 
@@ -17,12 +18,14 @@
       
       stuName = (await client.studentInfo()).student.name;
       stuPhoto = (await client.studentInfo()).photo;
+      stuID = (await client.studentInfo()).id;
 
       document.getElementById("msg").style.color = "black";
       msg = "Welcome, " + stuName + "!";
 
       student.update(state => ({...state, 
         name: stuName,
+        ID: stuID,
         photo: stuPhoto,
         loggedIn: true
       }));

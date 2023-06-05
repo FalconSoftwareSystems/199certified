@@ -6,8 +6,11 @@
   
     function adLogin() {;
       if (pword.value == '1234') {
-        msg = "Logged In!";
+        student.update(state => ({...state, 
+          loggedIn: true
+      }));
       } else {
+        document.getElementById("msg").style.color = "red";
         msg = "Incorrect Login";
       }
     }

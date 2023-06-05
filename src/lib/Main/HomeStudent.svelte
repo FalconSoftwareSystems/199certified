@@ -2,20 +2,17 @@
     import StudentVue from "studentvue";
     import { student } from "../stores.js";
 
-    let msg = "";
-
-    msg = "Welcome, " + $student.name;
-
-
+    let userPhoto = 'data:image/png;base64,' + $student.photo;
+    
 </script>
 <div class="wrapper">
     <div class="sidebar">
         <ul>
             <li><p>9:41:00 AM</p></li>
             <li><p>R&E, Block A</p></li>
-            <li><img class = "student-photo-img" src="assets/Tools/brian.jpg" alt="Student ID"></li>
-            <li><p>Andrew<br>Kendall</p></li>
-            <li><p>123456</p></li>
+            <li><img class = "student-photo-img" src={userPhoto} alt="Student ID"></li>
+            <li><p>{$student.name}</p></li>
+            <li><p>{$student.ID}</p></li>
         </ul>
     </div>
     <div class="certification-statuses">
