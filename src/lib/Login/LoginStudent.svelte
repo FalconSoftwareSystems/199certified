@@ -49,9 +49,8 @@
 
 </script>
   
-<form class="login">
+<form class="loginStu">
   <br><label for="login">Student Login</label><br><br>
-  <label for="login_info">Please enter your MCPS ID and Password</label><br><br>
   
   <input type="text" placeholder="Enter MCPS ID" id="uname" bind:this={uname}>
   <input type="password" placeholder="Enter Password" id="pword" bind:this={pword}><br>
@@ -62,7 +61,7 @@
 </form>
 
 <style>
-  form.login {
+  form.loginStu {
     text-align: center;
     border: 3px solid #f1f1f1;
     background-color: white;
@@ -71,18 +70,18 @@
     height: auto;
   }
 
-  form.login label {
+  form.loginStu label {
     text-align: center;
     font-size: 20px;
     margin: 20px;
   }
 
-  form.login label[for="login"] {
+  form.loginStu label[for="login"] {
     font-size: 30px;
     font-weight: bold;
   }
 
-  form.login input[type=text], input[type=password] {
+  form.loginStu input[type=text], input[type=password] {
     width: 80%;
     padding: 12px 15px; /* Inside */
     margin: 5px 0; /* Outside */
@@ -91,11 +90,11 @@
     box-sizing: border-box;
   }
 
-  form.login input[type=checkbox] {
+  form.loginStu input[type=checkbox] {
     margin: 5px;
   }
 
-  form.login button {
+  form.loginStu button {
     background-color: #be965cff;
     color: white;
     padding: 14px 20px;
@@ -105,7 +104,7 @@
     width: 20%;
   }
 
-  form.login button:hover {
+  form.loginStu button:hover {
     background-color: #917347ff;    
   }
 </style>
