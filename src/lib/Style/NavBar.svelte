@@ -20,15 +20,16 @@
 </script>
 
 <body>
-    <header>
-      <nav>
-        <ul>
-          <li><img src={fssLogo} alt="FSS_Logo"/></li>
-          <li><center><h1>{title}</h1></center></li>
-          <li><button type="button" on:click={adminClick} class="admin_button">{bText}</button></li>
-        </ul>
-      </nav>  
-    </header>
+  <header>
+    <h1>{title}</h1>
+  </header>
+    
+  <nav>
+    <ul>
+      <li><img src = {fssLogo} alt="FSS_Logo"/></li>
+      <li><button type="button" on:click={adminClick} class="admin_button">{bText}</button></li>
+    </ul>
+  </nav>
 </body>
 
 <style>
@@ -48,20 +49,9 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: #231f20ff;
   width: 100%;
   top: 0;
-}
-
-nav img {
-  float: left;
-  padding: 5px 10px;
-  height: 45px;
-  width: auto;
-}
-
-nav h1 {
-  color: white;
-  text-align: center;
 }
 
 nav li button {
@@ -70,11 +60,17 @@ nav li button {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  border: none;
 }
 
-nav button:hover {
+nav li button:hover {
   background-color: #0d0d0d;    
+}
+
+nav img {
+  float: left;
+  padding: 5px 10px;
+  height: 45px;
+  width: auto;
 }
 
 nav li button.admin_button {
