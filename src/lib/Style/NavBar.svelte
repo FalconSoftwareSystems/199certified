@@ -1,5 +1,5 @@
 <script>
-    import fssLogo from '../../assets/FSS_Logo.png'
+    import fssLogo from '../../assets/General/FSS_Logo.png'
     import LoginAdmin from '../Login/LoginAdmin.svelte'
     import { student } from "../stores.js"
     export let bText;
