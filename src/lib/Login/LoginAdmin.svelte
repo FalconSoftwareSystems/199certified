@@ -2,11 +2,18 @@
     import { student } from "../stores.js";
 
     let pword;
-  
     let msg = "";
   
-    // function login() {
-    // }
+    function adLogin() {;
+      if (pword.value == '1234') {
+        student.update(state => ({...state, 
+          loggedIn: true
+      }));
+      } else {
+        document.getElementById("msg").style.color = "red";
+        msg = "Incorrect Login";
+      }
+    }
   
     function showPass() {
       if (pword.type === "password") {
@@ -16,11 +23,11 @@
       }
     }
   
-    // document.addEventListener("keyup", function(event) {
-    //   if (event.code === 'Enter') {
-    //     login();
-    //   }
-    // });
+    document.addEventListener("keyup", function(event) {
+      if (event.code === 'Enter') {
+        adLogin();
+      }
+    });
   
   </script>
   
@@ -30,7 +37,8 @@
     <input type="password" placeholder="Enter Password" id="pword" bind:this={pword}><br>   
     <input type="checkbox" on:click={showPass}>Show Password<br>
 
-    <button type="button" id="login_button">Login</button><br>
+    <button type="button" id="login_button" on:click={adLogin}>Login</button><br>
+    <p>{msg}</p>
 </form>
 
   <style>
@@ -54,7 +62,7 @@
       font-weight: bold;
     }
   
-    form.loginAd input[type=text], input[type=password] {
+    form.loginAd input[type=password], input[type=text] {
       width: 80%;
       padding: 12px 15px; /* Inside */
       margin: 5px 0; /* Outside */

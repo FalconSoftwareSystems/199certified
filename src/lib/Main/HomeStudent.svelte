@@ -1,20 +1,18 @@
 <script>
-    import StudentVue from "studentvue";
-    import { onMount } from "svelte"; // time modele thing
-    import { student } from "../stores.js";
+  import StudentVue from "studentvue";
+  import { onMount } from "svelte"; // time modele thing
+  import { student } from "../stores.js";
 
-    let msg = "";
-    let currentTime = new Date().toLocaleTimeString(); // creating local time variable
+  let userPhoto = 'data:image/png;base64,' + $student.photo;
 
-    onMount(() => {
-        setInterval(() => {
-            currentTime = new Date().toLocaleTimeString(); // getting local time
-        }, 1000);
-    });
+  let msg = "";
+  let currentTime = new Date().toLocaleTimeString(); // creating local time variable
 
-    msg = "Welcome, " + $student.name;
-
-
+  onMount(() => {
+      setInterval(() => {
+          currentTime = new Date().toLocaleTimeString(); // getting local time
+      }, 1000);
+  });
 </script>
 <div class="wrapper">
     <div class="sidebar">

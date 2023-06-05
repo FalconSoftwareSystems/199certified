@@ -13,6 +13,7 @@
     <NavBar title="Student Home" bText="Student Login"/>
     <HomeStudent />
   {:else if $student.admin && $student.loggedIn}
+    <NavBar title="Admin Home" bText="Admin Login"/>
     <HomeAdmin />
   {:else if $student.admin}
     <NavBar title="199% Certified" bText="Student Login"/>
