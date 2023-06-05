@@ -13,17 +13,15 @@
           currentTime = new Date().toLocaleTimeString(); // getting local time
       }, 1000);
   });
-
-  msg = "Welcome, " + $student.name;
 </script>
 <div class="wrapper">
-  <div class="sidebar">
-      <ul>
-          <li><p>{currentTime}</p></li> 
-          <li><p>R&E, Block A</p></li>
-          <li><img class = "student-photo-img" src={userPhoto} alt="Student ID"></li>
-          <li><p>{$student.name}</p></li>
-          <li><p>{$student.ID}</p></li>
+    <div class="sidebar">
+        <ul>
+            <li><p>{currentTime}</p></li> 
+            <li><p>R&E, Block A</p></li> 
+            <li><img class = "student-photo-img" src="assets/Tools/brian.jpg" alt="Student ID"></li>
+            <li><p>Andrew<br>Kendall</p></li>
+            <li><p>123456</p></li>
         </ul>
     </div>
     <div class="certification-statuses">
