@@ -1,8 +1,16 @@
 <script>
     import StudentVue from "studentvue";
+    import { onMount } from "svelte"; // time modele thing
     import { student } from "../stores.js";
 
     let msg = "";
+    let currentTime = new Date().toLocaleTimeString(); // creating local time variable
+
+    onMount(() => {
+        setInterval(() => {
+            currentTime = new Date().toLocaleTimeString(); // getting local time
+        }, 1000);
+    });
 
     msg = "Welcome, " + $student.name;
 
@@ -11,8 +19,8 @@
 <div class="wrapper">
     <div class="sidebar">
         <ul>
-            <li><p>9:41:00 AM</p></li>
-            <li><p>R&E, Block A</p></li>
+            <li><p>{currentTime}</p></li> 
+            <li><p>R&E, Block A</p></li> 
             <li><img class = "student-photo-img" src="assets/Tools/brian.jpg" alt="Student ID"></li>
             <li><p>Andrew<br>Kendall</p></li>
             <li><p>123456</p></li>
