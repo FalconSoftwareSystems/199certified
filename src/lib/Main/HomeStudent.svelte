@@ -265,20 +265,20 @@
 -->
 <table></table>
 <script>
+    import { student } from "../stores";
+
     fetch('https://script.google.com/macros/s/AKfycbyJMFNY2Ejp9TQ8xIutrB8UqnE09lSbZAu12PKpi4Dwtgi7HyIN4BzSC0weDlB59O1LzQ/exec')
     //getting actual json
     .then(res => res.json())
     //res is a callback arrow function to then, takes res.json to parse.
             .then(data => {
-              //takes parsed json as parameter (data)
-                let tr = data.content.reduce((prev, cur) => {
-                    let td = cur.map(e => `<td>${e}</td>`)
-                    return prev + `<tr>${td.join("")}</tr>`
-                }, "\r")
-                document.querySelector("table").innerHTML = tr;
-                for (var i=0; i<tr.length; i++) {
-                     tr[i].style.color = "red";
+              for (const person of data.content.slice(3)){
+                let stringID = person[2]
+                if(144682 == person[2]){
+                  localStorage.setItem(person[2].toString(), JSON.stringify(person))
                 }
+              }
+              //takes parsed json as parameter (data)
             });
 </script>
 
