@@ -263,12 +263,25 @@
 </style>
 
 -->
-
+<table></table>
 <script>
     fetch('https://script.google.com/macros/s/AKfycbyJMFNY2Ejp9TQ8xIutrB8UqnE09lSbZAu12PKpi4Dwtgi7HyIN4BzSC0weDlB59O1LzQ/exec')
+    //getting actual json
     .then(res => res.json())
-    .then(data => console.log(data));
+    //res is a callback arrow function to then, takes res.json to parse.
+            .then(data => {
+              //takes parsed json as parameter (data)
+                let tr = data.content.reduce((prev, cur) => {
+                    let td = cur.map(e => `<td>${e}</td>`)
+                    return prev + `<tr>${td.join("")}</tr>`
+                }, "\r")
+                document.querySelector("table").innerHTML = tr;
+                for (var i=0; i<tr.length; i++) {
+                     tr[i].style.color = "red";
+                }
+            });
 </script>
+
 
 <!--ok guys there's abit of a problem
 so basically to access that link u gottta bein mcps
@@ -278,3 +291,4 @@ cause there isnt any way to google scripts to chck if we are in mcps or not
 or
 if kingman can access a spreadsheet that isnt owned by mcps, then we can make a new spreadsheeton fss gmail account
 just call me ill explai-->
+
