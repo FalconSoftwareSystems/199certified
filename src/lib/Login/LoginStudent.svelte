@@ -13,15 +13,14 @@
   const DISTRICT_URL = 'https://md-mcps-psv.edupoint.com/PXP2_Login.aspx';
 
   async function login() {
+    document.getElementById("msg").style.color = "black";
+    msg = "Loading...";
     try {
       const client = await StudentVue.login(DISTRICT_URL, { username: uname.value, password: pword.value });
       
       stuName = (await client.studentInfo()).student.name;
       stuPhoto = (await client.studentInfo()).photo;
       stuID = (await client.studentInfo()).id;
-
-      document.getElementById("msg").style.color = "black";
-      msg = "Welcome, " + stuName + "!";
 
       student.update(state => ({...state, 
         name: stuName,
@@ -68,7 +67,7 @@
     text-align: center;
     border: 3px solid #f1f1f1;
     background-color: white;
-    margin: 80px auto; 
+    margin: 250px auto 0px auto; 
     width: 30%;
     height: auto;
   }

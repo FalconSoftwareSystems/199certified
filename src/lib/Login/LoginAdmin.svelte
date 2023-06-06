@@ -46,7 +46,7 @@
       text-align: center;
       border: 3px solid #f1f1f1;
       background-color: white;
-      margin: 80px auto; 
+      margin: 250px auto 0px auto; 
       width: 30%;
       height: auto;
     }
