@@ -7,3 +7,13 @@ export let student = writable({
     loggedIn: false,
     admin: false
 })
+
+export function resetStudent() {
+    student.set({
+        name: undefined,
+        photo: undefined,
+        ID: undefined,
+        loggedIn: false,
+        admin: false
+    })
+}

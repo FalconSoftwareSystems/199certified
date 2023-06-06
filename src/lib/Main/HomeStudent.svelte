@@ -1,123 +1,111 @@
- <!--
- 
- <script>
-    import StudentVue from "studentvue";
-    import { student } from "../stores.js";
+<script>
+  import StudentVue from "studentvue";
+  import { student } from "../stores.js";
 
-    let msg = "";
-
-    msg = "Welcome, " + $student.name;
-
+  import BasicSafety from "../../assets/Tools/1BasicSafety.png";
+  import BandSaw from "../../assets/Tools/2BandSaw.png"
+  import BeltSander from "../../assets/Tools/3BeltSander.png"
+  import ElectricDrill from "../../assets/Tools/4ElectricDrill.png";
+  import DrillPress from "../../assets/Tools/5DrillPress.png"
+  import ScrollSaw from "../../assets/Tools/6ScrollSaw.png"
+  // import SaberSaw from "../../assets/Tools/7SaberSaw.png";
+  import MiterSaw from "../../assets/Tools/8MiterSaw.png";
+  // import Finishing Sander from "../../assets/Tools/9FinishingSander.png";
+  // import CircularSaw from "../../assets/Tools/10CircularSaw.png";
+  import TableSaw from "../../assets/Tools/11TableSaw.png";
+  import printers3D from "../../assets/Tools/12printers3D.png";
+  import cartBG from "../../assets/Tools/13cartBG.png"
 
 </script>
+
 <div class="wrapper">
-    <div class="sidebar">
-        <ul>
-            <li><p>9:41:00 AM</p></li>
-            <li><p>R&E, Block A</p></li>
-            <li><img class = "student-photo-img" src="assets/Tools/brian.jpg" alt="Student ID"></li>
-            <li><p>Andrew<br>Kendall</p></li>
-            <li><p>123456</p></li>
-        </ul>
-    </div>
-    <div class="certification-statuses">
-        <div class="basic-safety">
-            <p>Basic Safety</p>
-            <div class = "basic-safety-indicator">
-                <p>Certified ✔</p>
-            </div>
-            <img class = "basic-safety-img" src="../../assets/Tools/Belt_Sander_2.JPG" alt="Basic Safety">
-        </div>
-        <div class="band-saw">
-            <p>Band Saw</p>
-            <div class = "band-saw-indicator">
-                <p>Not Certified ✘</p>
-            </div>
-            <img class = "band-saw-img" src="../../assets/Tools/Band_Saw_1.JPG" alt="Band Saw">
-        </div>
-        <div class="miter-saw">
-            <p>Miter Saw</p>
-            <div class = "miter-saw-indicator">
-                <p>Certified ✔</p>
-            </div>
-            <img class = "miter-saw-img" src="assets/Tools/Miter_Saw_1.JPG" alt="Miter Saw">
-        </div>
-        <div class="belt-sander">
-            <p>Belt Sander</p>
-            <div class = "belt-sander-indicator">
-                <p>Certified ✔</p>
-            </div>
-            <img class = "belt-sander-img" src="assets/Tools/Belt_Sander_2.JPG" alt="Belt Sander">
-        </div>
-        <div class="drill-press">
-            <p>Drill Press</p>
-            <div class = "drill-press-indicator">
-                <p>Certified ✘</p>
-            </div>
-            <img class = "drill-press-img" src="media/Drill_Press_1.JPG" alt="Drill Press">
-        </div>
+    <div class="grid">
+        <div id="basic-safety" class="tool">
+          <p>Basic Safety</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={BasicSafety} alt="Basic Safety"> </div>
+        <div id="band-saw" class="tool">
+          <p>Band Saw</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={BandSaw} alt="Band Saw"> </div>
+        <div id="belt-sander" class="tool">
+          <p>Belt Sander</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={BeltSander} alt="Belt Sander"> </div>
+        <div id="electric-drill" class="tool">
+          <p>Electric Drill</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={ElectricDrill} alt="Electric Drill"> </div>
+        <div id="drill-press" class="tool">
+          <p>Drill Press</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={DrillPress} alt="Drill Press"> </div>
+        <div id="scroll-saw" class="tool">
+          <p>Scroll Saw</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={ScrollSaw} alt="Scroll Saw"> </div>
+        <div id="saber-saw" class="tool">
+          <p>Saber Saw</p>
+          <p class="indicator">Certified ✔</p>
+          <!-- <img src={SaberSaw} alt="Saber Saw">  --> </div>
+        <div id="miter-saw" class="tool">
+          <p>Miter Saw</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={MiterSaw} alt="Miter Saw"> </div>
+        <div id="finishing-sander" class="tool">
+          <p>Finishing Sander</p>
+          <p class="indicator">Certified ✔</p>
+          <!-- <img src={FinishingSander} alt="Finishing Sander"> --> </div> 
+        <div id="circular-saw" class="tool">
+          <p>Circular Saw</p>
+          <p class="indicator">Certified ✔</p>
+          <!-- <img src={CircularSaw} alt="Circular Saw"> --> </div> 
+        <div id="table-saw" class="tool">
+          <p>Table Saw</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={TableSaw} alt="Table Saw"> </div>
+        <div id="printers-3D" class="tool">
+          <p id="printerTag">3D Printers</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={printers3D} alt="3D Printers"> </div>
+        <div id="cart-bg" class="tool">
+          <p id="cartBGTag">B&G Cart</p>
+          <p class="indicator">Certified ✔</p>
+          <img src={cartBG} alt="Black and Gold Cart"> </div>
     </div>
 </div>    
+
 <style>
-.wrapper .sidebar{
-  position: fixed;
-  left: 0;
-  top: 90px;
-  width: 385px;
-  height: 100%;
-  background: #231F20;
-  text-align: center;
-}
-.wrapper .sidebar ul{
-  list-style: none;
-  padding-left: 0;
-  margin-top: 10px;
-}
-.wrapper .sidebar p{
-  padding: 5px;
-  width: 285px;
-  border: 3px solid white;
-  text-align: center;
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 30px;
-  font-weight: bold;
-  background: black;
-  color: white;
-}
-.wrapper .sidebar img{
-  width: 285px;
-  border: 3px solid white;
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  background: black;
-}
 
-/* Certifications */
-
-.wrapper .certification-statuses{
+/* General */
+.grid {
   display: grid;
-  grid-template-rows: 760px 760px;
-  grid-template-columns: 15px 15px 15px;
-  margin-left: 360px;
+  margin-left: 190px;
+  margin-top: 140px;
+  grid-template-rows: 485px 485px 485px 485px;
+  grid-template-columns: 300px 300px 300px 300px;
 }
-.wrapper .certification-statuses .basic-safety{
-  width: 455px;
+
+.grid .tool {
+  width: 275px;
   border: 3px solid white;
   text-align: center;
   margin-top: 10px;
   margin-left: 50px;
-  font-size: 30px;
   font-weight: bold;
   background: black;
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
 }
-.wrapper .certification-statuses .basic-safety .basic-safety-indicator{
+
+.grid .tool p {
+  color: white;
+  margin: 20px;
+  font-size: 28px;
+}
+
+.grid p.indicator{
+  font-size: 20px;
   height: 50px;
-  width: 420px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0px;
@@ -127,139 +115,28 @@
   align-items: center;
   background: green;
 }
-.wrapper .certification-statuses .basic-safety .basic-safety-img{
-  height: 560px;
-  width: 420px;
+
+.grid img {
+  height: 300px;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
 }
 
-.wrapper .certification-statuses .band-saw{
-  width: 455px;
-  border: 3px solid white;
-  text-align: center;
-  margin-top: 10px;
-  margin-left: 540px;
-  height: 700;
-  font-size: 30px;
-  font-weight: bold;
-  background: black;
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
-}
-.wrapper .certification-statuses .band-saw .band-saw-indicator{
-  height: 50px;
-  width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: yellow;
-  
-
-}
-.wrapper .certification-statuses .band-saw .band-saw-img{
-  height: 560px;
-  width: 420px;
-  margin-left: auto;
-  margin-right: auto;
+/* Specific Tools */
+.grid #printers-3D {
+  background: white;
+  border-color: black;
 }
 
-.wrapper .certification-statuses .miter-saw{
-  width: 455px;
-  border: 3px solid white;
-  text-align: center;
-  margin-top: 10px;
-  margin-left: 50px;
-  font-size: 30px;
-  font-weight: bold;
-  background: black;
-  grid-row: 2 / 3;
-  grid-column: 1 / 2;
-}
-.wrapper .certification-statuses .miter-saw .miter-saw-indicator{
-  height: 50px;
-  width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: green;
-}
-.wrapper .certification-statuses .miter-saw .miter-saw-img{
-  height: 560px;
-  width: 420px;
-  margin-left: auto;
-  margin-right: auto;
+.grid #printers-3D #printerTag {
+  color: black;
 }
 
-.wrapper .certification-statuses .belt-sander{
-  width: 455px;
-  border: 3px solid white;
-  text-align: center;
-  margin-top: 10px;
-  margin-left: 50px;
-  font-size: 30px;
-  font-weight: bold;
-  background: black;
-  grid-row: 2 / 3;
-  grid-column: 2 / 3;
-}
-.wrapper .certification-statuses .belt-sander .belt-sander-indicator{
-  height: 50px;
-  width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: green;
-}
-.wrapper .certification-statuses .belt-sander .belt-sander-img{
-  height: 560px;
-  width: 420px;
-  margin-left: auto;
-  margin-right: auto;
+.grid #cart-bg {
+  background: #917347ff;
 }
 
-.wrapper .certification-statuses .drill-press{
-  width: 455px;
-  border: 3px solid white;
-  text-align: center;
-  margin-top: 10px;
-  margin-left: 50px;
-  font-size: 30px;
-  font-weight: bold;
-  background: black;
-  grid-row: 2 / 3;
-  grid-column: 2 / 3;
-}
-.wrapper .certification-statuses .drill-press .drill-press-indicator{
-  height: 50px;
-  width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: green;
-}
-.wrapper .certification-statuses .drill-press .drill-press-img{
-  height: 560px;
-  width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-}
 </style>
 
 -->
