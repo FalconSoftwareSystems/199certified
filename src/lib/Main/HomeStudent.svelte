@@ -15,8 +15,6 @@
   import printers3D from "../../assets/Tools/12printers3D.png";
   import cartBG from "../../assets/Tools/13cartBG.png"
 
-  import Filler from "../../assets/Tools/filler.png";
-
 </script>
 
 <div class="wrapper">
@@ -81,8 +79,8 @@
 /* General */
 .grid {
   display: grid;
-  margin-left: 270px;
-  margin-top: 150px;
+  margin-left: 190px;
+  margin-top: 140px;
   grid-template-rows: 485px 485px 485px 485px;
   grid-template-columns: 300px 300px 300px 300px;
 }
