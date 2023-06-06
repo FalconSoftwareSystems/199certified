@@ -32,15 +32,15 @@
     background: rgb(92, 91, 91); /* 231F20 */
 }
 
-.sidebar ul{
+.sidebar ul {
     list-style: none;
     padding: 10px;
     margin: 0px;
 }
 
-.sidebar li p{
+.sidebar li p {
     padding: 2px;
-    width: 250px;
+    width: 180px;
     border: 2px solid white;
     text-align: center;
     margin: 0px auto 10px auto; /* top right bottom left*/
@@ -50,8 +50,8 @@
     overflow: auto;
 }
 
-.sidebar li img{
-    width: 250px;
+.sidebar li img {
+    width: 180px;
     border: 2px solid white;
     margin: 0px auto 10px auto; /* top right bottom left*/
     background: black;
