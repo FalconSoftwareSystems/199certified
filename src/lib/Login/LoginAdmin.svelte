@@ -5,10 +5,10 @@
     let msg = "";
   
     function adLogin() {;
-      if (pword.value == '1234') {
+      if (pword.value == 'lifealtering') {
         student.update(state => ({...state, 
           loggedIn: true
-      }));
+        }));
       } else {
         document.getElementById("msg").style.color = "red";
         msg = "Incorrect Login";
@@ -62,7 +62,7 @@
       font-weight: bold;
     }
   
-    form.loginAd input[type=password], input[type=text] {
+    form.loginAd input[type=password] {
       width: 80%;
       padding: 12px 15px; /* Inside */
       margin: 5px 0; /* Outside */

@@ -6,6 +6,7 @@
   import HomeStudent from "./lib/Main/HomeStudent.svelte";
   import NavBar from "./lib/Style/NavBar.svelte";
   import SideBar from "./lib/Style/SideBar.svelte";
+  import TopBar from "./lib/Style/TopBar.svelte";
 
 </script>
 
@@ -16,6 +17,7 @@
     <HomeStudent />
   {:else if $student.admin && $student.loggedIn}
     <NavBar title="Admin Home" bText="Sign Out"/>
+    <TopBar />
     <HomeAdmin />
   {:else if $student.admin}
     <NavBar title="199% Certified" bText="Student Login"/>

@@ -1,19 +1,23 @@
 <script>
     import fssLogo from '../../assets/General/FSS_Logo.png'
     import LoginAdmin from '../Login/LoginAdmin.svelte'
-    import { student } from "../stores.js"
+    import { resetStudent, student } from "../stores.js"
     export let bText;
     export let title;
 
   function click() {
-    if (!$student.admin) {
+    if (!$student.admin && !$student.loggedIn) {
       student.update(state => ({...state, 
         admin: true
       }));
-    } else {
+    } else if ($student.admin && !$student.loggedIn) {
       student.update(state => ({...state, 
         admin: false
       }));
+    } else {
+      document.getElementById('btton').style.backgroundColor = "#917347ff";
+      bText = "Signing out...";
+      setTimeout(()=> {resetStudent()},1000);
     }
   }
 
@@ -27,7 +31,7 @@
   <nav>
     <ul>
       <li><img src={fssLogo} alt="FSS_Logo"/></li>
-      <li><button type="button" on:click={click} class="button">{bText}</button></li>
+      <li><button type="button" on:click={click} id="btton">{bText}</button></li>
     </ul>
   </nav>
 </body>
@@ -65,7 +69,7 @@ nav ul {
   top: 0;
 }
 
-nav li button.button {
+nav li button {
   display: block;
   color: white;
   text-align: center;
@@ -76,8 +80,9 @@ nav li button.button {
   border: 0;    
 }
 
-nav li button.button:hover {
-  background-color: #917347ff;    
+nav li button:hover {
+  background-color: #917347ff;
+  cursor: pointer;    
 }
 
 nav img {
@@ -86,17 +91,5 @@ nav img {
   height: 45px;
   width: auto;
 }
-
-/* nav li button {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav li button:hover {
-  background-color: #0d0d0d;    
-} */
 
 </style>
