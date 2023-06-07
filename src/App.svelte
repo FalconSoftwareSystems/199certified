@@ -13,10 +13,10 @@
 
 <body>  
   {#if !$student.admin && $student.loggedIn}
+    <Reader />
     <NavBar title="Student Home" bText="Sign Out"/>
     <SideBar />
     <HomeStudent />
-    <Reader />
   {:else if $student.admin && $student.loggedIn}
     <NavBar title="Admin Home" bText="Sign Out"/>
     <TopBar />
