@@ -6,7 +6,11 @@ export let student = writable({
     ID: undefined,
     loggedIn: false,
     admin: false,
-    tools: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    tools: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    class: "N/A",
+    period: undefined,
+    block: undefined,
+    updated: false
 });
 
 export function resetStudent() {
@@ -16,6 +20,11 @@ export function resetStudent() {
         ID: undefined,
         loggedIn: false,
         admin: false,
-        tools: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        tools: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        class: "N/A",
+        period: undefined,
+        block: undefined,
+        updated: false
+
     })
 }

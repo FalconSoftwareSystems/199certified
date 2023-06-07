@@ -18,7 +18,8 @@
     try {
       // Send Username and Password to the StudentVUE API
       const client = await StudentVue.login(DISTRICT_URL, { username: uname.value, password: pword.value });
-      
+            
+      console.log()
       // Get Student Info
       stuName = (await client.studentInfo()).student.name;
       stuPhoto = (await client.studentInfo()).photo;
@@ -32,19 +33,40 @@
       }));
 
       // Get Spreadsheet Data and Update
-      const response = await fetch("https://script.google.com/macros/s/AKfycbyJMFNY2Ejp9TQ8xIutrB8UqnE09lSbZAu12PKpi4Dwtgi7HyIN4BzSC0weDlB59O1LzQ/exec");
-      const classData = await response.json();
-      for (const studentInfo of classData.content) {
-        if (studentInfo[2] == $student.ID) {
-          student.update(state => { 
-            let updatedTools = [...state.tools];
+      const response1 = await fetch("https://script.google.com/macros/s/AKfycbzgDL9OzGYA19fKDw2RGvYMPNGFgSLhE1cQau_mhiowINd00nzyvySRYeG5Beaj5mqR-A/exec");
+      const classData1 = await response1.json();
+      
+      const response2 = await fetch("https://script.google.com/macros/s/AKfycbx7M2XJpWb088CoHJTdSY-VNYqPLyGCCnAvjBzi5XG4HOC5dOKRSkGEMCs7NzJ7UVDpFA/exec");
+      const classData2 = await response2.json();
 
-            for (let tool = 1; tool <= 13; tool++) {
-              updatedTools[tool-1] = studentInfo[tool+2];
-            }
+      const response3 = await fetch("https://script.google.com/macros/s/AKfycbwEZPNS2dhNkh57d467Rab7ihh-7oavdoqKJZFx9buGLCSdqV0lln9KaCbD4TiPvvxl/exec");
+      const classData3 = await response3.json();
 
-            return {...state, tools: updatedTools};
-          });
+      let allClassData = [classData1, classData2, classData3];
+
+      for (let classData of allClassData) {
+        for (const studentInfo of classData.content) {
+          if (!$student.updated && studentInfo[3] == "R&E") {
+            student.update(state => ({...state, 
+              class: "R&E",
+              block: "Block " + studentInfo[4],
+            }));
+          } else if (!$student.updated && studentInfo[3] == "ADA") {
+            student.update(state => ({...state, 
+              class: "ADA",
+              period: "Period " + studentInfo[5],
+            }));
+          }
+          if (studentInfo[2] == $student.ID) {
+            student.update(state => { 
+              let updatedTools = [...state.tools];
+
+              for (let tool = 1; tool <= 13; tool++) {
+                updatedTools[tool-1] = studentInfo[tool+2];
+              }
+              return {...state, tools: updatedTools, updated: true};
+            });
+          }
         }
       }
 
