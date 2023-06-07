@@ -16,25 +16,52 @@
     document.getElementById("msg").style.color = "black";
     msg = "Loading...";
     try {
+      // Send Username and Password to the StudentVUE API
       const client = await StudentVue.login(DISTRICT_URL, { username: uname.value, password: pword.value });
       
+      // Get Student Info
       stuName = (await client.studentInfo()).student.name;
       stuPhoto = (await client.studentInfo()).photo;
       stuID = (await client.studentInfo()).id;
 
+      // Update Student Info
       student.update(state => ({...state, 
         name: stuName,
         ID: stuID,
         photo: stuPhoto,
-        loggedIn: true
       }));
+
+      // Get Spreadsheet Data and Update
+      const response = await fetch("https://script.google.com/macros/s/AKfycbyJMFNY2Ejp9TQ8xIutrB8UqnE09lSbZAu12PKpi4Dwtgi7HyIN4BzSC0weDlB59O1LzQ/exec");
+      const classData = await response.json();
+      for (const studentInfo of classData.content) {
+        if (studentInfo[2] == $student.ID) {
+          student.update(state => { 
+            let updatedTools = [...state.tools];
+
+            for (let tool = 1; tool <= 13; tool++) {
+              updatedTools[tool-1] = studentInfo[tool+2];
+            }
+
+            return {...state, tools: updatedTools};
+          });
+        }
+      }
+
+      // Log the Student In
+      student.update(state => ({...state, 
+        loggedIn: true,
+      }));
+
     } catch (e) {
+      // If the Username or Password is Incorrect, then the error is caught and is displayed on the website
       document.getElementById("msg").style.color = "red";
       msg = "Incorrect Login";
       console.log(e.message);
     }
   }
 
+  // Function for Show Password Button
   function showPass() {
     if (pword.type === "password") {
       pword.type = "text";
@@ -43,6 +70,7 @@
     }
   }
 
+  // Pressing "Enter" logs Student in
   document.addEventListener("keyup", function(event) {
     if (event.code === 'Enter') {
       login();

@@ -5,8 +5,9 @@ export let student = writable({
     photo: undefined,
     ID: undefined,
     loggedIn: false,
-    admin: false
-})
+    admin: false,
+    tools: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+});
 
 export function resetStudent() {
     student.set({
@@ -14,6 +15,7 @@ export function resetStudent() {
         photo: undefined,
         ID: undefined,
         loggedIn: false,
-        admin: false
+        admin: false,
+        tools: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     })
 }

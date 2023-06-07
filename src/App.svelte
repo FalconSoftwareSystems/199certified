@@ -7,11 +7,13 @@
   import NavBar from "./lib/Style/NavBar.svelte";
   import SideBar from "./lib/Style/SideBar.svelte";
   import TopBar from "./lib/Style/TopBar.svelte";
+  import Reader from "./lib/Main/reader.svelte";
 
 </script>
 
 <body>  
   {#if !$student.admin && $student.loggedIn}
+    <Reader />
     <NavBar title="Student Home" bText="Sign Out"/>
     <SideBar />
     <HomeStudent />
