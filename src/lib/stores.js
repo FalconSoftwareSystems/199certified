@@ -8,8 +8,6 @@ export let student = writable({
     admin: false,
     tools: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     class: "N/A",
-    period: undefined,
-    block: undefined,
     updated: false
 });
 
@@ -22,9 +20,6 @@ export function resetStudent() {
         admin: false,
         tools: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         class: "N/A",
-        period: undefined,
-        block: undefined,
         updated: false
-
     })
 }

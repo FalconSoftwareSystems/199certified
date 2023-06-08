@@ -33,28 +33,23 @@
       }));
 
       // Get Spreadsheet Data and Update
-      const response1 = await fetch("https://script.google.com/macros/s/AKfycbzgDL9OzGYA19fKDw2RGvYMPNGFgSLhE1cQau_mhiowINd00nzyvySRYeG5Beaj5mqR-A/exec");
+      const response1 = await fetch("https://script.google.com/macros/s/AKfycbw7R7bEIpqsGF-b_oah1kdg3vZ6TxGehrkGi4KVnGb4B7GGAEqpF8fqO_V5bcv3VPRB_Q/exec");
       const classData1 = await response1.json();
-      
-      const response2 = await fetch("https://script.google.com/macros/s/AKfycbx7M2XJpWb088CoHJTdSY-VNYqPLyGCCnAvjBzi5XG4HOC5dOKRSkGEMCs7NzJ7UVDpFA/exec");
+
+      const response2 = await fetch("https://script.google.com/macros/s/AKfycbyEGqXFKV5C0k5UjLCRDAdTo_a-iSr4oGvW90hZ0fz8jEndBMjn_vSMF7_P_WVUzGTR/exec");
       const classData2 = await response2.json();
 
-      const response3 = await fetch("https://script.google.com/macros/s/AKfycbwEZPNS2dhNkh57d467Rab7ihh-7oavdoqKJZFx9buGLCSdqV0lln9KaCbD4TiPvvxl/exec");
-      const classData3 = await response3.json();
-
-      let allClassData = [classData1, classData2, classData3];
+      let allClassData = [classData1, classData2];
 
       for (let classData of allClassData) {
         for (const studentInfo of classData.content) {
           if (!$student.updated && studentInfo[3] == "R&E") {
             student.update(state => ({...state, 
               class: "R&E",
-              block: "Block " + studentInfo[4],
             }));
           } else if (!$student.updated && studentInfo[3] == "ADA") {
             student.update(state => ({...state, 
               class: "ADA",
-              period: "Period " + studentInfo[5],
             }));
           }
           if (studentInfo[2] == $student.ID) {

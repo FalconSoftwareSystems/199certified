@@ -11,19 +11,12 @@
         }, 1000);
     });
 
-    let pd;
-    console.log($student.class + " Block: " + $student.block + " Pd: " + $student.period);
-    if ($student.class = "R&E") {
-        pd = ", " + $student.block;
-    } else if ($student.class = "ADA") {
-        pd = ", " + $student.period;
-    }
 </script>
 
 <div class="sidebar">
     <ul>
         <li><p>{currentTime}</p></li> 
-        <li><p>{$student.class}{pd}</p></li> 
+        <li><p>{$student.class}</p></li> 
         <li><img class = "student-photo-img" src={userPhoto} alt="Student ID"></li>
         <li><p>{$student.name}</p></li> 
         <li><p>{$student.ID}</p></li>
