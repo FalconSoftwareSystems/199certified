@@ -16,7 +16,7 @@
 <div class="sidebar">
     <ul>
         <li><p>{currentTime}</p></li> 
-        <li><p>{$student.class}</p></li> 
+        <li><p>{$student.grade}</p></li> 
         <li><img class = "student-photo-img" src={userPhoto} alt="Student ID"></li>
         <li><p>{$student.name}</p></li> 
         <li><p>{$student.ID}</p></li>

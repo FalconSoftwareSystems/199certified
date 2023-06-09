@@ -14,7 +14,7 @@
 <body>  
   {#if !$student.admin && $student.loggedIn}
     <Reader />
-    <NavBar title="Student Home" bText="Sign Out"/>
+    <NavBar title="Student Tool Certifications" bText="Sign Out"/>
     <SideBar />
     <HomeStudent />
   {:else if $student.admin && $student.loggedIn}
