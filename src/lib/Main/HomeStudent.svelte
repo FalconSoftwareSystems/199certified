@@ -7,10 +7,10 @@
   import ElectricDrill from "../../assets/Tools/4ElectricDrill.png";
   import DrillPress from "../../assets/Tools/5DrillPress.png"
   import ScrollSaw from "../../assets/Tools/6ScrollSaw.png"
-  // import SaberSaw from "../../assets/Tools/7SaberSaw.png";
+  import SaberSaw from "../../assets/Tools/7SaberSaw.png";
   import MiterSaw from "../../assets/Tools/8MiterSaw.png";
-  // import Finishing Sander from "../../assets/Tools/9FinishingSander.png";
-  // import CircularSaw from "../../assets/Tools/10CircularSaw.png";
+  import FinishingSander from "../../assets/Tools/9FinishingSander.png";
+  import CircularSaw from "../../assets/Tools/10CircularSaw.png";
   import TableSaw from "../../assets/Tools/11TableSaw.png";
   import printers3D from "../../assets/Tools/12printers3D.png";
   import cartBG from "../../assets/Tools/13cartBG.png";
@@ -62,7 +62,7 @@
         <div id="saber-saw" class="tool">
           <p>Saber Saw</p>
           <p class={toolPage[6]} id="saber-saw"></p>
-          <!-- <img src={SaberSaw} alt="Saber Saw">  --> </div>
+          <img src={SaberSaw} alt="Saber Saw">  </div>
         <div id="miter-saw" class="tool">
           <p>Miter Saw</p>
           <p class={toolPage[7]} id="miter-saw"></p>
@@ -70,11 +70,11 @@
         <div id="finishing-sander" class="tool">
           <p>Finishing Sander</p>
           <p class={toolPage[8]} id="finishing-sander"></p>
-          <!-- <img src={FinishingSander} alt="Finishing Sander"> --> </div> 
+          <img src={FinishingSander} alt="Finishing Sander"> </div> 
         <div id="circular-saw" class="tool">
           <p>Circular Saw</p>
           <p class={toolPage[9]} id="circular-saw"></p>
-          <!-- <img src={CircularSaw} alt="Circular Saw"> --> </div> 
+          <img src={CircularSaw} alt="Circular Saw"> </div> 
         <div id="table-saw" class="tool">
           <p>Table Saw</p>
           <p class={toolPage[10]} id="table-saw"></p>

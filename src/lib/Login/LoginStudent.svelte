@@ -9,6 +9,7 @@
   let stuName;
   let stuPhoto;
   let stuID;
+  let stuGrade;
 
   const DISTRICT_URL = 'https://md-mcps-psv.edupoint.com/PXP2_Login.aspx';
 
@@ -23,12 +24,14 @@
       stuName = (await client.studentInfo()).student.name;
       stuPhoto = (await client.studentInfo()).photo;
       stuID = (await client.studentInfo()).id;
+      stuGrade = (await client.studentInfo()).grade + "th Grade";
 
       // Update Student Info
       student.update(state => ({...state, 
         name: stuName,
         ID: stuID,
         photo: stuPhoto,
+        grade: stuGrade
       }));
 
       // Get Spreadsheet Data for R&E

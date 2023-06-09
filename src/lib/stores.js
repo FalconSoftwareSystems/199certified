@@ -14,7 +14,7 @@ export let student = writable({
                 "3D Printers", "Black and Gold Cart"],
     toolPos: 0,
 
-    class: "N/A",
+    grade: "",
     updated: false
 });
 
@@ -33,7 +33,7 @@ export function resetStudent() {
                     "3D Printers", "Black and Gold Cart"],
         toolPos: 0,
 
-        class: "N/A",
+        grade: "",
         updated: false
     })
 }
