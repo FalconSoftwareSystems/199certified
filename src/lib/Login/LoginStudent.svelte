@@ -19,7 +19,6 @@
       // Send Username and Password to the StudentVUE API
       const client = await StudentVue.login(DISTRICT_URL, { username: uname.value, password: pword.value });
             
-      console.log()
       // Get Student Info
       stuName = (await client.studentInfo()).student.name;
       stuPhoto = (await client.studentInfo()).photo;
@@ -32,39 +31,83 @@
         photo: stuPhoto,
       }));
 
-      // Get Spreadsheet Data and Update
-      const response1 = await fetch("https://script.google.com/macros/s/AKfycbw7R7bEIpqsGF-b_oah1kdg3vZ6TxGehrkGi4KVnGb4B7GGAEqpF8fqO_V5bcv3VPRB_Q/exec");
-      const classData1 = await response1.json();
+      // Get Spreadsheet Data for R&E
+      const responseR = await fetch("https://script.google.com/macros/s/AKfycbwFVmptlteGWFyaIPCm8knbNi_J93GMq9_rV3WnsASA_pKOtBQ1BoF26ftUqZDKWvLv/exec");
+      const classDataR = await responseR.json();
 
-      const response2 = await fetch("https://script.google.com/macros/s/AKfycbyEGqXFKV5C0k5UjLCRDAdTo_a-iSr4oGvW90hZ0fz8jEndBMjn_vSMF7_P_WVUzGTR/exec");
-      const classData2 = await response2.json();
+      // Get Spreadsheet Data for ADA
+      const responseA = await fetch("https://script.google.com/macros/s/AKfycbxTvIMzrwGSSBzk4FLZrUTS5bt3G9wC-peniOg9OZLLCzV7i7S7tK4HjVOwIAm20EGZ/exec");
+      const classDataA = await responseA.json();
 
-      let allClassData = [classData1, classData2];
+      let allClassData = [classDataR, classDataA]
 
+      // Loop through both Spreadsheets
       for (let classData of allClassData) {
-        for (const studentInfo of classData.content) {
-          if (!$student.updated && studentInfo[3] == "R&E") {
-            student.update(state => ({...state, 
-              class: "R&E",
-            }));
-          } else if (!$student.updated && studentInfo[3] == "ADA") {
-            student.update(state => ({...state, 
-              class: "ADA",
-            }));
-          }
-          if (studentInfo[2] == $student.ID) {
-            student.update(state => { 
-              let updatedTools = [...state.tools];
+        
+        /* FINDING WHICH COLUMN EACH SAFETY TEST IS IN */
+        let firstRow = classData.content[0];
 
-              for (let tool = 1; tool <= 13; tool++) {
-                updatedTools[tool-1] = studentInfo[tool+2];
+        // Loop through every cell in the First Row (which has the safety quiz names)
+        for (let pos = 5; pos < firstRow.length - 16; pos++) {
+            // Loop through the array with every tool's name
+            for (let toolIndex = 0; toolIndex < $student.toolNames.length; toolIndex++) {
+              let tool = $student.toolNames[toolIndex];
+              // If the cell has the tool's name, update the tool's "tool column" property
+              if (firstRow[pos].includes(tool) && !firstRow[pos].includes("Corrections")) {
+                student.update(state => {
+                  let updatedToolCols = [...state.toolCols];
+                  updatedToolCols[state.toolPos] = pos;
+                  return {...state, toolCols: updatedToolCols};
+                });
               }
-              return {...state, tools: updatedTools, updated: true};
-            });
+              student.update(state => {
+                let updatedToolPos = state.toolPos + 1;
+                return {...state, toolPos: updatedToolPos};
+              });
+            }
+            student.update(state => ({...state, 
+              toolPos: 0,
+            }));
+        }
+        
+        /* UPDATING TOOL CERTIFICATION STATUSES */
+        for (let stuInfoPos = 2; stuInfoPos < classData.content.length; stuInfoPos++) {
+          let studentInfo = classData.content[stuInfoPos];
+
+          if (studentInfo[3].includes($student.ID)) {
+            for (let toolIndex = 0; toolIndex < $student.toolNames.length; toolIndex++) {
+              let toolName = $student.toolNames[toolIndex];
+              let toolCol = $student.toolCols[toolIndex];
+              let toolMaxPts = classData.content[1][toolCol];
+
+              // If the Tool has a Safety Quiz on Canvas, update the student's certifications
+              if (toolCol != 0) {
+                let score = studentInfo[toolCol]/toolMaxPts;
+                if (score == 1) { 
+                  student.update(state => {
+                    let updatedTools = [...state.tools];
+                    updatedTools[toolIndex] = 2; 
+                    return {...state, tools: updatedTools};
+                  });
+                } else if (score < 1 && score > 0.5) {
+                  student.update(state => {
+                    let updatedTools = [...state.tools];
+                    updatedTools[toolIndex] = 1; 
+                    return {...state, tools: updatedTools};
+                  });
+                } else {
+                  student.update(state => {
+                    let updatedTools = [...state.tools];
+                    updatedTools[toolIndex] = 0; 
+                    return {...state, tools: updatedTools};
+                  });
+                }
+              }
+            }
           }
         }
       }
-
+          
       // Log the Student In
       student.update(state => ({...state, 
         loggedIn: true,
