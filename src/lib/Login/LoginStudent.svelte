@@ -1,7 +1,6 @@
 <script>
   import StudentVue from "studentvue";
   import { student } from "../stores.js";
-  import adLogin from "./LoginAdmin.svelte"
 
   let uname;
   let pword;

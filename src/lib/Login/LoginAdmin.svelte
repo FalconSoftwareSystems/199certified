@@ -5,7 +5,7 @@
     let msg = "";
   
     export function adLogin() {
-      if (pword.value == 'lifealtering') {
+      if (pword.value == 'iL0veC@nv@s') {
         student.update(state => ({...state, 
           loggedIn: true
         }));
