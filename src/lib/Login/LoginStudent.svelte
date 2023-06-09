@@ -46,6 +46,14 @@
 
       // Loop through both Spreadsheets
       for (let classData of allClassData) {
+
+        student.update(state => {
+          let updatedToolCols = [...state.toolCols];
+          for (let num = 0; num < 12; num++) {
+            updatedToolCols[num] = 0;
+          }
+          return {...state, toolCols: updatedToolCols};
+        });
         
         /* FINDING WHICH COLUMN EACH SAFETY TEST IS IN */
         let firstRow = classData.content[0];
