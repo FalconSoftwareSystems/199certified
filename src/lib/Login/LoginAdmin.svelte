@@ -4,7 +4,7 @@
     let pword;
     let msg = "";
   
-    function adLogin() {;
+    export function adLogin() {
       if (pword.value == 'lifealtering') {
         student.update(state => ({...state, 
           loggedIn: true
@@ -22,12 +22,6 @@
         pword.type = "password";
       }
     }
-  
-    document.addEventListener("keyup", function(event) {
-      if (event.code === 'Enter') {
-        adLogin();
-      }
-    });
   
   </script>
   

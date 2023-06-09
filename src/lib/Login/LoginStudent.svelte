@@ -1,6 +1,7 @@
 <script>
   import StudentVue from "studentvue";
   import { student } from "../stores.js";
+  import adLogin from "./LoginAdmin.svelte"
 
   let uname;
   let pword;
@@ -59,7 +60,7 @@
         let firstRow = classData.content[0];
 
         // Loop through every cell in the First Row (which has the safety quiz names)
-        for (let pos = 5; pos < firstRow.length - 16; pos++) {
+        for (let pos = 0; pos < firstRow.length; pos++) {
             // Loop through the array with every tool's name
             for (let toolIndex = 0; toolIndex < $student.toolNames.length; toolIndex++) {
               let tool = $student.toolNames[toolIndex];
@@ -140,13 +141,6 @@
       pword.type = "password";
     }
   }
-
-  // Pressing "Enter" logs Student in
-  document.addEventListener("keyup", function(event) {
-    if (event.code === 'Enter') {
-      login();
-    }
-  });
 
 </script>
   
