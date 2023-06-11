@@ -141,6 +141,11 @@
     }
   }
 
+  document.addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+      login();
+    }
+  });
 </script>
   
 <form class="loginStu">
