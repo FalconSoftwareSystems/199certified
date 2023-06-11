@@ -14,8 +14,8 @@
   </div>
   <div class="child" id="canvas">
     <h1>Safety Test Naming Conventions</h1>
+    <button type="button" on:click={openExample} id="ex">Click Here for Example Spreadsheet Data</button>
     <img src={AdminDirTest} alt="Admin Safety Test Directions">
-    <button type="button" on:click={openExample} id="ex">EXAMPLE SPREADSHEET DATA</button>
   </div>
 </div>
 
@@ -72,8 +72,8 @@
 
 .dir #canvas button{
   display: block;
-  width: 35%;
-  height: auto;
+  width: 60%;
+  height: 30px;
   text-align: center;
   margin: 10px auto;
   background-color: #0F9D58;
@@ -83,5 +83,6 @@
 
 .dir #canvas button:hover{
   background-color: #0e844b;
+  cursor: pointer;
 }
 </style>
