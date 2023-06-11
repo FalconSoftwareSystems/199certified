@@ -11,7 +11,7 @@
     }
 
     function delay() {
-      if (pword.value == 'test') {
+      if (pword.value == 'iL0veC@nv@s') {
         student.update(state => ({...state, 
           loggedIn: true
         }));
@@ -30,8 +30,9 @@
       }
     }
 
-    document.addEventListener("keyup", function(event) {
-      if (event.code === 'Enter') {
+    document.addEventListener("keypress", function(event) {
+      if (event.key === 'Enter' && $student.admin) {
+        event.preventDefault();
         adLogin();
       }
     });

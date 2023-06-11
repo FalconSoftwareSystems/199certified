@@ -40,8 +40,8 @@ function ssLogin() {
 <nav>
   <ul>
     <li><img src={fssLogo} alt="FSS_Logo"/></li>
-    <li><button type="button" class="other" id="ss_button" on:click={ssLogin}>Spreadsheet</button></li>
     <li><button type="button" class="other" id="manual_button" on:click={manual}>User Manual</button></li>
+    <li><button type="button" class="other" id="ss_button" on:click={ssLogin}>199% Certified Spreadsheet</button></li>
     <li><button type="button" on:click={newClick} id="Login">{bText}</button></li>
     
   </ul>
@@ -76,7 +76,7 @@ nav ul {
   padding: 0;
   overflow: hidden;
   height: 45px;
-  background-color: #231f20ff; /* 231f20ff */
+  background-color: #231f20ff;
   width: 100%;
   top: 0;
 }
