@@ -141,6 +141,12 @@
     }
   }
 
+  document.addEventListener("keypress", function(event) {
+    if (event.key === 'Enter' && !$student.admin) {
+      event.preventDefault();
+      login();
+    }
+  });
 </script>
   
 <form class="loginStu">

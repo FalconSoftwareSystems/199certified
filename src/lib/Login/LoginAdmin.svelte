@@ -5,11 +5,18 @@
     let msg = "";
   
     export function adLogin() {
+      document.getElementById("msg").style.color = "black";
+      msg = "Loading...";
+      setTimeout(()=> {delay()},500);
+    }
+
+    function delay() {
       if (pword.value == 'iL0veC@nv@s') {
         student.update(state => ({...state, 
           loggedIn: true
         }));
       } else {
+        console.log("incorrect")
         document.getElementById("msg").style.color = "red";
         msg = "Incorrect Login";
       }
@@ -22,6 +29,13 @@
         pword.type = "password";
       }
     }
+
+    document.addEventListener("keypress", function(event) {
+      if (event.key === 'Enter' && $student.admin) {
+        event.preventDefault();
+        adLogin();
+      }
+    });
   
   </script>
   
@@ -32,7 +46,7 @@
     <input type="checkbox" on:click={showPass}>Show Password<br>
 
     <button type="button" id="login_button" on:click={adLogin}>Login</button><br>
-    <p>{msg}</p>
+    <p id="msg">{msg}</p>
 </form>
 
   <style>
@@ -56,7 +70,7 @@
       font-weight: bold;
     }
   
-    form.loginAd input[type=password] {
+    form.loginAd #pword {
       width: 80%;
       padding: 12px 15px; /* Inside */
       margin: 5px 0; /* Outside */

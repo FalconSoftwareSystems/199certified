@@ -17,7 +17,7 @@
     } else {
       document.getElementById('btton').style.backgroundColor = "#917347ff";
       bText = "Signing out...";
-      setTimeout(()=> {resetStudent()},1000);
+      setTimeout(()=> {resetStudent()},500);
     }
   }
 

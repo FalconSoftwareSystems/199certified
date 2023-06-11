@@ -5,6 +5,7 @@
   import HomeAdmin from "./lib/Main/HomeAdmin.svelte";
   import HomeStudent from "./lib/Main/HomeStudent.svelte";
   import NavBar from "./lib/Style/NavBar.svelte";
+  import NewNavBar from "./lib/Style/NewNavBar.svelte";
   import SideBar from "./lib/Style/SideBar.svelte";
   import TopBar from "./lib/Style/TopBar.svelte";
 
@@ -16,7 +17,7 @@
     <SideBar />
     <HomeStudent />
   {:else if $student.admin && $student.loggedIn}
-    <NavBar title="Admin Home" bText="Sign Out"/>
+    <NewNavBar title="Admin Home" bText="Sign Out"/>
     <TopBar />
     <HomeAdmin />
   {:else if $student.admin}
